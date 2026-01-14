@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>University Admissions Portal</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+    }
+
+    header {
+      background: #003366;
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    nav {
+      background: #002244;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #003366;
+    }
+
+    form input, form select, form button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      background: #003366;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    button:hover {
+      background: #001f4d;
+    }
+
+    .success {
+      background: #d4edda;
+      color: #155724;
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 5px;
+      display: none;
+    }
+
+    footer {
+      background: #003366;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>University Admissions 2026</h1>
+  <p>Apply Online for UG & PG Programs</p>
+</header>
+
+<nav>
+  <a href="#programs">Programs</a>
+  <a href="#apply">Apply</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<div class="container">
+
+  <div class="card" id="programs">
+    <h2>Available Programs</h2>
+    <ul>
+      <li>B.Tech</li>
+      <li>MBA</li>
+      <li>BBA</li>
+      <li>MCA</li>
+      <li>B.Sc</li>
+    </ul>
+  </div>
+
+  <div class="card" id="apply">
+    <h2>Online Application Form</h2>
+
+    <form id="admissionForm">
+      <input type="text" id="name" placeholder="Full Name" required>
+      <input type="email" id="email" placeholder="Email Address" required>
+      <input type="tel" id="phone" placeholder="Mobile Number" required>
+
+      <select id="course" required>
+        <option value="">Select Course</option>
+        <option>B.Tech</option>
+        <option>MBA</option>
+        <option>BBA</option>
+        <option>MCA</option>
+        <option>B.Sc</option>
+      </select>
+
+      <button type="submit">Submit Application</button>
+    </form>
+
+    <div class="success" id="successMessage">
+      ✅ Application submitted successfully!  
+      <br>We will contact you soon.
+    </div>
+  </div>
+
+  <div class="card" id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: admissions@university.edu</p>
+    <p>Phone: +91 98765 43210</p>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 University Admissions Portal
+</footer>
+
+<script>
+  document.getElementById("admissionForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let phone = document.getElementById("phone").value;
+    let course = document.getElementById("course").value;
+
+    if (name && email && phone && course) {
+      console.log("Application Data:", {
+        name, email, phone, course
+      });
+
+      document.getElementById("successMessage").style.display = "block";
+      document.getElementById("admissionForm").reset();
+    }
+  });
+</script>
+
+</body>
+</html>
